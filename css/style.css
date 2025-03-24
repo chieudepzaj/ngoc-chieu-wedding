@@ -1,0 +1,2875 @@
+/*
+=======================================================================================
+File Name: style.css      [Main Theme Styles]
+
+
+Project: Best Moments - Mordern Wedding Site Template
+Designer: DesignHaven
+Developer & Author: 3Jon
+Version: 1.0
+
+Last change: 20/10/2016 (20 Oct, 2016)
+Primary use: Wedding / Love
+
+======================================================================================= */
+/*
+=======================================================================================
+Index 
+=======================================================================================
+
+01.	COMMON CLASSES
+		a. HTML & Body
+		b. Fonts & Typo
+		c. Buttons & Strips
+		d. Color Codes
+		e. Layout Helpers
+02. HEADER
+03. FOOTER
+
+04. HOME PAGE (index.html)
+		a. Header	
+	 	b. Wedding Couple
+	 	c. Big Day
+	 	d. Love Story
+	 	e. Testimonial
+	 	f. Wedding events
+	 	g. RSVP	
+	 	h. Important People
+	 	i. RSVP Form
+	 	j. Photo Gallery
+	 	k. Our Blog
+	 	l. Wedding Location
+	 	m. Gigt Registration
+
+05. BLOG PAGE (blog.html)
+		a. Blog Header
+		b. Blog Posts / All Posts
+06. SINGLE PAGE (single-page.html)
+		a. Single Post Header
+		b. Post Content
+		c. Comments
+		d. Reply Comments Form
+
+07. Utility classes (Avoid Overrides)
+08. Media Quaries
+	
+======================================================================================= */
+
+
+
+
+
+/*	COMMON CLASSES
+======================================================================================= */
+
+
+/*	HTML & Body
+--------------------------------------------------------------------------------------- */
+body {
+	font-family: 'poppinsregular', sans-serif;
+	font-size: 14px;
+	color: #424242;
+	line-height: 1;
+}
+ul {
+	list-style: none;
+}
+a {
+	color: #424242;
+}
+a:hover,
+a:focus,
+a:active {
+	color: #f02d72;
+	text-decoration: none;
+	cursor: pointer;
+}
+i:hover,
+i:focus,
+i:active {
+	text-decoration: none;
+}
+
+.heart {
+	position: fixed;
+	top: -100px;
+	transform: translateY(0);
+	cursor: pointer;
+	z-index: 999;
+}
+
+.heart::before,
+.heart::after {
+	content: "";
+	width: 12px;
+	height: 20px;
+	background: #f06292;
+	border-radius: 50px 50px 0 0;
+	position: absolute;
+	display: block;
+}
+
+.heart::before {
+	transform: rotate(-45deg);
+	transform-origin: 0 100%;
+	left: 10px;
+}
+
+.heart::after {
+	transform: rotate(45deg);
+	transform-origin: 100% 100%;
+	left: -2px;
+}
+
+@keyframes heartAnimation {
+	0% {
+		opacity: 0;
+		transform: translateY(0) scale(0.3);
+	}
+	30% {
+		opacity: 0.7;
+		transform: translateY(100px) scale(0.6);
+	}
+	70% {
+		opacity: 1;
+		transform: translateY(400px) scale(0.8);
+	}
+	100% {
+		opacity: 0;
+		transform: translateY(800px) scale(1);
+	}
+}
+
+/*	Fonts & Typo
+--------------------------------------------------------------------------------------- */
+.text-regular {
+	font-family: "Questrial", sans-serif;
+	font-size: 14px;
+	line-height: 30px;
+	color: #424242;
+}
+
+.section-title {
+	font-family: 'arima_maduraibold';
+	font-size: 45px;
+	text-transform: capitalize;
+	margin-top: 0;
+}
+.section-tagline {
+	font-family: "Questrial", sans-serif;;
+	font-size: 18px;
+	line-height: 35px;
+	max-width: 800px;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 25px;
+	margin-bottom: 80px; 
+}
+.section-subtitle {
+	font-family: "Dancing Script", cursive;
+	font-size: 22px;
+	font-weight: 900;
+	line-height: 1;
+	margin-top: 0;
+}
+
+.section-subtitle-custom {
+	font-family: "Dancing Script", cursive;
+	font-size: 30px;
+	font-weight: 900;
+	line-height: 1;
+	margin-top: 0;
+}
+.arima-madurairegular {
+	font-family: 'arima_madurairegular';
+}
+.text-italic {
+	font-style: italic;
+}
+.font-20 {
+	font-size: 20px;
+}
+.font-24 {
+	font-size: 24px;
+}
+.font-37 {
+	font-size: 37px;
+}
+.font-55 {
+	font-size: 55px;
+}
+
+
+/*	Buttons & Strips
+--------------------------------------------------------------------------------------- */
+.wedding-button {
+	font-family: "STIX Two Text", serif;
+    font-size: 18px;
+    text-transform: capitalize;
+    border: 0px;
+    border-radius: 30px;
+    line-height: 1;
+    padding: 18px 33px;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+}
+.wedding-button.bg-pink:hover, 
+.wedding-button.bg-pink:focus, 
+.wedding-button.bg-pink:active {
+	outline: none;
+	background-color: #eeeeee;
+	color: #222222;
+}
+.wedding-button.bg-pink:hover, 
+.wedding-button.bg-pink:focus, 
+.wedding-button.bg-pink:active {
+    outline: none;
+    background-color: #FF1493; /* Deep Pink - Hồng đậm */
+    color: #FFF; /* Chữ trắng */
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 20, 147, 0.3);
+    transition: all 0.3s ease;
+    border: 1px solid #FF69B4; /* Hot Pink - Viền hồng nhạt hơn */
+}
+.wedding-button.bg-white:hover, 
+.wedding-button.bg-white:focus, 
+.wedding-button.bg-white:active {
+	outline: none;
+	background-color: #222222;
+	color: #ffffff;
+}
+.title-strip-pink,
+.title-strip-green,
+.title-strip-white {
+	display: inline-block;
+	line-height: 1;
+}
+.title-strip-pink::before {
+	content: "";
+	display: inline-block;
+	width: 94px;
+	height: 2px;
+	background-color: #ff0000;
+	vertical-align: middle;
+	margin-right: 4px;
+}
+.title-strip-pink::after {
+	content: "";
+	display: inline-block;
+	width: 94px;
+	height: 2px;
+	background-color: #ff0000;
+	vertical-align: middle;
+	margin-right: 4px;
+}
+.title-strip-green::before {
+	content: "";
+	display: inline-block;
+	width: 94px;
+	height: 2px;
+	background-color: #008f53;
+	vertical-align: middle;
+	margin-right: 4px;
+}
+.title-strip-green::after {
+	content: "";
+	display: inline-block;
+	width: 94px;
+	height: 2px;
+	background-color: #008f53;
+	vertical-align: middle;
+	margin-right: 4px;
+}
+.title-strip-white::before {
+	content: "";
+	display: inline-block;
+	width: 94px;
+	height: 2px;
+	background-color: #fff;
+	vertical-align: middle;
+	margin-right: 4px;
+}
+.title-strip-white::after {
+	content: "";
+	display: inline-block;
+	width: 94px;
+	height: 2px;
+	background-color: #fff;
+	vertical-align: middle;
+	margin-right: 4px;
+}
+.link-smooth-scroll {
+	display: inline-block;
+}
+/*	Color Codes
+--------------------------------------------------------------------------------------- */
+.text-pink {
+	color: #f02d72;
+}
+.text-red {
+	color: #ff0000;
+}
+.text-green {
+	color: #008f53;
+}
+.text-white {
+	color: #fff;
+}
+.text-blackish {
+	color: #222222;
+}
+
+.text-custom-1 {
+	color: #222222;
+}
+.text-grey-blackish {
+	color: #333333;
+}
+.bg-blackish {
+	background-color: #222222;
+}
+.bg-green {
+	background-color: #62d545;
+}
+.bg-grey {
+	background-color: #eeeeee;
+}
+.bg-pink {
+	background-color: #f02d72;
+}
+.bg-white {
+	background-color: #fff;
+}
+.error_message {
+	color: #ffffff;
+	margin-bottom: 15px;
+}
+
+/*	Layout Helpers
+======================================================================================= */
+.section-padding-top {
+	padding-top: 152px;
+}
+.section-padding-bottom {
+	padding-bottom: 140px;
+}
+
+/*	PAGE LOADER
+======================================================================================= */
+#loader-wrapper {
+    /* background: linear-gradient(135deg, #8B0000, #FF0000); */
+	background: url('/images/red_banner_2.png');
+    background-size: auto; /* Đảm bảo ảnh phủ toàn bộ area */
+    background-position: center; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+}
+
+#loader {
+    display: block;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    border: 3px solid transparent;
+    border-top-color: #FFB6C1;
+    border-radius: 50%;
+    animation: spin 2s linear infinite;
+}
+
+#loader:before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border: 3px solid transparent;
+    border-top-color: #ec3731;
+    border-radius: 50%;
+    animation: spin 3s linear infinite;
+}
+
+#loader:after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border: 3px solid transparent;
+    border-top-color: #DC143C;
+    border-radius: 50%;
+    animation: spin 1.5s linear infinite;
+}
+
+#loader-wrapper img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    z-index: 1001;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+    0% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.1); }
+    100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+/* Hiệu ứng fade-slide đơn giản và thanh lịch */
+.loader-section {
+    position: fixed;
+    top: 0;
+    width: 51%;
+    height: 100%;
+    background: #8B0000;
+    z-index: 1000;
+    opacity: 1;
+    transition: all 0.7s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+}
+
+.loader-section.section-left { 
+    left: 0;
+    transform: translateY(0);
+}
+
+.loader-section.section-right { 
+    right: 0;
+    transform: translateY(0);
+}
+
+/* Khi load xong */
+.loaded .section-left {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+.loaded .section-right {
+    transform: translateY(100%);
+    opacity: 0;
+}
+
+.loaded #loader {
+    opacity: 0;
+}
+
+.loaded #loader-wrapper {
+    visibility: hidden;
+    transform: translateY(-100%);
+    transition: all 0.3s 1s ease-out;
+}
+
+/*	HEADER
+======================================================================================= */
+header nav {
+	margin-top: 0px;
+}
+.navbar-default {
+    background: linear-gradient(
+        90deg,
+        rgba(220, 20, 60, 0.95) 0%,      /* Đỏ tươi Crimson */
+        rgba(220, 20, 60, 0.95) 20%,     /* Giữ màu đỏ tươi */
+        rgba(255, 255, 255, 0.95) 45%,   /* Chuyển sang trắng */
+        rgba(255, 255, 255, 0.95) 55%,   /* Giữ màu trắng cho logo */
+        rgba(220, 20, 60, 0.95) 80%,     /* Chuyển về đỏ tươi */
+        rgba(220, 20, 60, 0.95) 100%     /* Đỏ tươi bên phải */
+    );
+    box-shadow: 0 2px 15px rgba(255, 69, 0, 0.3); /* Shadow màu đỏ cam */
+    border: 0px;
+    border-radius: 0;
+    z-index: 10;
+    -webkit-transition: margin-top .5s, margin-left 0s, left 0s, width 0s;
+    transition: margin-top .5s, margin-left 0s, left 0s, width 0s;
+}
+.navbar-white-bg {
+	background-color: rgba(198,194,194,0.05);
+}
+.navbar-logo {
+	position: relative;
+    left: 50%;
+    top: 50%;
+    margin-left: -70.5px;
+    margin-top: -71px;
+    z-index: 2;
+    padding: 10px 20px;
+}
+.navbar-logo img {
+    max-height: 50px;
+    transition: transform 0.3s ease;
+}
+.navbar-logo:hover img {
+    transform: scale(1.05);
+}
+.navbar-default .navbar-nav>li>a  {
+	font-family: "Dancing Script", cursive;
+	font-size: 18px;
+	color: #FFF;
+	text-transform: capitalize;
+	line-height: 1;
+	padding: 30px 20px 26px;
+	
+}
+.navbar-default .navbar-nav>li>a:hover {
+	color: #FF4136 !important; /* Đỏ tươi sáng */
+    text-shadow: 0 0 8px rgba(255, 65, 54, 0.3); /* Thêm hiệu ứng glow nhẹ */
+}
+.navbar-default .navbar-nav>li>a:hover, 
+.navbar-default .navbar-nav>li>a:focus,
+.navbar-default .navbar-nav>li>a:active,
+.navbar-default .navbar-nav>li>a:hover:focus {
+	outline: none;
+	color: #ffffff;
+}
+.navbar-toggle {
+	border: 0;
+	border-radius: 0;
+	cursor: pointer;
+}
+.navbar-default .navbar-toggle:focus, 
+.navbar-default .navbar-toggle:hover {
+	background-color: transparent;
+}
+.navbar-default .navbar-toggle .icon-bar {
+	background-color: #dad1d1;
+}
+.header-flex-wrapper {
+	padding-top: 160px;
+}
+.navbar-default.affix {
+    background-color: rgba(34, 34, 34, .5);
+    margin: 0;
+    width: 100%;
+    left: 0;
+    margin-left: 0;
+    z-index: 999999999;
+    -webkit-transition: all 0s, margin-top 1s;
+    transition: all 0s, margin-top 1s;
+}
+.navbar-default.affix .container {
+    width: 100%;
+    padding: 0 15px;
+}
+.navbar-default .navbar-nav>.active>a, 
+.navbar-default .navbar-nav>.active>a:focus, 
+.navbar-default .navbar-nav>.active>a:hover {
+    background-color: transparent;
+    color: #FFD700 !important; /* Màu vàng gold */
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.4); /* Thêm hiệu ứng glow nhẹ */
+    font-weight: 700; /* Làm đậm chữ thêm */
+    position: relative;
+}
+
+/* Thêm hiệu ứng gạch chân cho active item */
+.navbar-default .navbar-nav>.active>a:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 2px;
+    background: #FFD700; /* Màu vàng gold */
+    box-shadow: 0 0 4px rgba(255, 215, 0, 0.6);
+}
+@media (max-width: 991px) {
+    .navbar-default .navbar-nav>.active>a:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 40px; /* Căn lề trái cố định thay vì transform */
+        width: 40%; /* Chiều rộng tương đối với padding */
+        height: 2px;
+        background: #FFD700;
+        box-shadow: 0 0 4px rgba(255, 215, 0, 0.6);
+        transform: none; /* Bỏ transform */
+    }
+} 
+
+/*	HOME PAGE (index.html)
+=======================================================================================
+======================================================================================= */
+
+
+/*	Home Header
+======================================================================================= */
+.home-header {
+	background-image: url(../images/home_background.jpg);
+}
+.home-header-text-wrapper {
+	margin-bottom: -15px;
+}
+.main-header-title {
+	font-family: "Mea Culpa", cursive;
+	font-size: 60px;
+	color: #fff;
+	text-transform: capitalize;
+	line-height: 1;
+	margin-top: 0;
+	margin-bottom: 36px;
+	white-space: nowrap;
+}
+.main-header-tagline {
+	font-family: 'Questrial', sans-serif;
+	font-size: 22px;
+	color: #fff;
+	text-transform: capitalize;
+	display: inline-block;
+	line-height: 1;
+}
+.main-header-tagline::before {
+	content: "";
+	display: inline-block;
+	width: 180px;
+	height: 2px;
+	background-color: #fff;
+	vertical-align: middle;
+	margin-right: 22px;
+}
+.main-header-tagline::after {
+	content: "";
+	display: inline-block;
+	width: 180px;
+	height: 2px;
+	background-color: #fff;
+	vertical-align: middle;
+	margin-left: 22px;
+}
+.main-header-date {
+	font-family: 'arima_maduraibold';
+	font-size: 38px;
+	color: #fff;
+	text-transform: capitalize;
+	line-height: 1;
+	margin-bottom: 0;
+	margin-top: 30px;
+}
+.groom {
+	font-family: 'arima_madurailight';
+	font-size: 30px;
+	line-height: 1;
+	white-space: nowrap;
+	top: 0;
+}
+.bride {
+	font-family: 'arima_madurailight';
+	font-size: 30px;
+	line-height: 1;
+	white-space: nowrap;
+	top: 0;
+}
+
+
+/*	Wedding Couple
+======================================================================================= */
+.couple-details {
+	width: 100%;
+	background-color: #fff;
+	border: 1px solid #e2e1e1;
+	padding: 150px 54px 60px;
+	text-align: center;
+}
+.couple-details > figure > img {
+	width: 241px;
+	height: 242px;
+	border: 8px solid #fff;
+    border-radius: 50%;
+	top: -122px;
+	left: 50%;
+	margin-left: -120px;
+	-webkit-transition: border-color .8s;
+	transition: border-color .8s;
+}
+.couple-tags {
+	font-family: 'arima_madurairegular';
+	font-size: 16px;
+	color: #f02d72;
+	text-transform: capitalize;
+}
+.couple-name {
+	font-family: 'Dancing Script', cursive;
+	font-size: 28px;
+	color: #222222;
+	text-transform: capitalize;
+}
+.heart-plus .fa-heart {
+	font-size:90px;
+}
+.heart-plus .fa-plus {
+	top: 25px;
+    left: 50%;
+    margin-left: -20px;
+}
+.heart-plus .fa-plus:before {
+    content: "\FF0B";
+    font-weight: bold;
+    font-size:40px; 
+}
+.couple-thumbnail-wrapper {
+	margin-top: 190px;
+}
+.couple-thumbnail:hover figure>img {
+	border-color: #f02d72;
+
+}
+.wedding-couple .section-tagline {
+	margin-bottom: 0;
+}
+/*	Big Day
+======================================================================================= */
+.big-day {
+	background-image: url('../images/red_banner.jpg');
+	padding: 110px 0px 100px;
+}
+.counter-tags {
+	font-family: 'arima_maduraimedium';
+	font-size: 25px;
+	color: #fff;
+	text-transform: capitalize;
+	margin-top: 28px;
+}
+.counter-numbers {
+	position: absolute;
+	top: 23px;
+	left: 50%;
+	margin-left: -22.5px;
+	line-height: 1;
+	font-family: 'pacificoregular';
+	font-size: 35px;
+	color: #fff;
+	width: 45px;
+    height: 35px;
+    text-align: center;
+}
+
+/*	Love Story
+======================================================================================= */
+.love-story {
+	padding-bottom: 270px;
+}
+.storyline-second .story-thumbnail {
+	padding-top: 30px;
+}
+.storyline-divider {
+	padding-top: 30px;
+}
+.storyline-divider-first {
+	position: relative;
+}
+.storyline-divider-first::before {
+	content: '';
+	background-image: url('../images/storyline-divider-up.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	display: block;
+	position: absolute;
+	width: 70px;
+	height: 80px;
+	top: -80px;
+    left: 50%;
+    margin-left: -34px;
+}
+.storyline-divider-second {
+	position: relative;
+}
+.storyline-divider-second::before {
+	content: '';
+	background-image: url('../images/storyline-divider-down.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	display: block;
+	position: absolute;
+	width: 69px;
+	height: 132px;
+	bottom: -129px;
+    left: 50%;
+    margin-left: -34px;
+}
+.storyline-titlebar-left,
+.storyline-titlebar-right {
+	padding: 15px 0px 11px;
+}
+.storyline-titlebar-left::after {
+	content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 17px 0 17px 16px;
+    border-color: transparent transparent transparent #f02d72;
+    right: -15px;
+    top: 8px;
+}
+.storyline-titlebar-right::before {
+	content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 17px 16px 17px 0;
+    border-color: transparent #f02d72 transparent transparent;
+    left: -15px;
+    top: 8px;
+}
+.story-thumbnail {
+	padding-top: 30px;
+	max-width: 346px;
+}
+.story-overview {
+	padding: 20px 25px 35px 28px;
+}
+.stroryline-date {
+	font-family: "Questrial", sans-serif;
+	font-size: 16px;
+	line-height: 1;
+}
+
+/*	Testimonial
+======================================================================================= */
+.testimonial {
+	background-image: url('../images/red_banner_6.jpg');
+	/* background-color: rgba(0, 0, 0, 0.5); Add dark overlay */
+	background-blend-mode: multiply; /* Blend the image with overlay */
+	background-size: auto; /* Đảm bảo ảnh phủ toàn bộ area */
+	background-position: center; 
+	padding-top: 100px;
+	padding-bottom: 100px;
+}
+.testimonial-quotation {
+	max-width: 888px;
+	height: 215px;
+	margin-left: 40px;
+	margin-bottom: 83px;
+	padding: 52px 35px 52px 92px;
+	border-top-left-radius: 100px;
+	border-bottom-right-radius: 100px;
+	position: relative;
+}
+.testimonial-quotation::after {
+	content: '';
+	position: absolute;
+	bottom: -34px;
+	left: 77px;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 34px 32.5px 0 32.5px;
+	border-color: #ffffff transparent transparent transparent;
+}
+.carousel-indicators {
+	width: auto;
+    position: relative;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: 0;
+    padding: 0;
+}
+.carousel-indicators li {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 1px;
+    text-indent: -999px;
+    cursor: pointer;
+    background-color: rgba(0,0,0,0);
+    border: 1px solid #fff;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+.carousel-indicators li.active {
+	background-color: #f02d72;
+	border-color: #f02d72;
+	margin: 5px;
+}
+.testimonial blockquote {
+	border: 0;
+	margin: 0;
+}
+.testimonial-friend-name {
+	font-family: 'arima_maduraibold';
+	font-size: 25px; 
+	line-height: 1;
+	margin-top: 15px;
+	margin-bottom: 5px;
+}
+
+#testimonial-carousel .carousel-inner {
+	width: 60%;
+}
+#testimonial-carousel blockquote i {
+	font-size: 36px;
+	left: -36px;
+	top: 0;
+}
+.testimonial-friend-details {
+	margin-left: 71px;
+}
+
+/*	Wedding Events
+======================================================================================= */
+.events-list {
+	padding-left: 30px;
+	padding-right: 15px;
+	margin-top: 0;
+}
+.events-list > li {
+	padding-bottom: 42px;
+	margin-bottom: 60px;
+  	border-bottom: 30px solid transparent;
+	-o-border-image: url('../images/events_border.png') 30 round;
+	border-image: url('../images/events_border.png') 30 round;
+}
+.events-list > li:last-child {
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+.wedding-events .section-subtitle {
+	font-size: 28px;
+	margin-bottom: 18px;
+	margin-top: 0;
+}
+.wedding-events [class]
+.events-info {
+	margin-bottom: 22px;
+}
+.events-info > li {
+	padding-right: 15px;
+	font-size: 16px;
+	line-height: 2;
+}
+.events-info > li i {
+	margin-right: 8px;
+}
+
+/*	RSVP
+======================================================================================= */
+.rsvp {
+	background-image: url('../images/red_banner_5.jpg');
+	background-size: auto;
+	padding-top: 80px;
+	padding-bottom: 90px;
+}
+
+/*	important people
+======================================================================================= */
+.thumbnail-custom {
+    display: inline-block;
+    margin-bottom: 30px;
+    line-height: 1;
+    background-color: #fff;
+    border: 5px solid #ddd;
+    border-radius: 0px;
+    -webkit-transition: border .2s ease-in-out;
+    -webkit-transition: border .2s, margin 0s;
+    transition: border .2s, margin 0s;
+}
+.thumbnail-custom:hover {
+	border: 10px solid #f02d72;
+}
+.important-people figure:hover figcaption > h3 > a {
+	color: #f02d72;
+}
+.important-people-name {
+	font-family: 'arima_maduraibold';
+    font-size: 25px;
+    line-height: 1;
+    margin-bottom: 15px;
+}
+.important-people-relation {
+	font-family: 'poppinsregular';
+    font-size: 14px;
+    line-height: 1;
+    color: #424242;
+}
+
+/*Equal Height Column*/
+.row-equal-height {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.row-equal-height [class*='col-'] {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+/*	RSVP Form
+======================================================================================= */
+.rsvp-now {
+	background-image: url('../images/rsvp_form_bg.jpg');
+	padding-top: 125px;
+	padding-bottom: 125px;
+}
+.center-block-col {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	float: none;
+}
+
+
+/*	FORM Styles
+--------------------------------------------------------------------------------------- */
+input {
+	padding-left: 0;
+	box-shadow: none;
+	outline: none;
+
+}
+.input-group-addon {
+	border-radius: 0;
+	border: 0;
+	background-color: #fff; 
+	padding-left: 22px;
+}
+.form-group {
+	margin-bottom: 23px;
+}
+.form-control {
+	font-family: "STIX Two Text", serif;
+    font-size: 14px;
+    line-height: 1;
+    color: #626262;
+    border-radius: 0;
+	border: 0;
+	height: 50px;
+	box-shadow: none;
+	padding-top: 0;
+	padding-bottom: 0;
+}
+.form-control:focus {
+	box-shadow: none;
+}
+.input-group-focus {
+	outline: 1px solid #f02d72;
+	box-shadow: 0px 0px 2px 2px rgba(255,255,255,.5);
+	-webkit-transition: all .3s ease-in;
+	transition: all .3s ease-in; 
+}
+.textarea-custom {
+	padding-top: 20px;
+	height: 183px!important;
+}
+.textarea-addon {
+	padding-top: 20px;
+	vertical-align: top;
+}
+.reply-comments .form-control, 
+.reply-comments .input-group-addon {
+	background-color: #f2f2f2;
+}
+
+.reply-comments .input-group {
+	border: 1px solid #e2e1e1;
+}
+
+/*placeholder text format*/
+
+.form-control::-webkit-input-placeholder {  /* Chrome/Opera/Safari */
+
+    font-family: 'poppinsregular';
+    font-size: 14px;
+    line-height: 50px;
+    color: #626262;
+    text-transform: capitalize;
+    vertical-align: middle;
+}
+.form-control::-moz-placeholder { /* Firefox 19+ */
+  	font-family: 'poppinsregular';
+    font-size: 14px;
+    line-height: 50px;
+    color: #626262;
+    text-transform: capitalize;
+    vertical-align: middle;
+    
+}
+.form-control:-moz-placeholder { /* Firefox 18- */
+  	font-family: 'poppinsregular';
+    font-size: 14px;
+    line-height: 50px;
+    color: #626262;
+    text-transform: capitalize;
+    vertical-align: middle;
+}
+.form-control:-ms-input-placeholder { /* IE 10+ */
+  	font-family: 'poppinsregular';
+    font-size: 14px;
+    line-height: 50px;
+    color: #626262;
+    text-transform: capitalize;
+    vertical-align: middle;
+}
+#comments::-webkit-input-placeholder {
+	line-height: 1;
+}
+#comments::-moz-placeholder {
+	line-height: 1;
+}
+#comments:-moz-placeholder {
+	line-height: 1;
+}
+#comments:-ms-input-placeholder {
+	line-height: 1;
+}
+
+
+
+
+
+/*	Photo Gallery
+======================================================================================= */
+#photos {
+   /* Prevent vertical gaps */
+   line-height: 1;
+   -webkit-column-count: 3;
+   -moz-column-count:    3; 
+   column-count:         3;
+   -webkit-column-gap:   20px;
+   -moz-column-gap:      20px;
+   	column-gap: 20px;
+}
+@media (min-width: 1200px) {
+  #photos {
+  -moz-column-count:    3;
+  -webkit-column-count: 3;
+  column-count:         3;
+  }
+}
+@media (max-width: 1199px) {
+  #photos {
+  -moz-column-count:    3;
+  -webkit-column-count: 3;
+  column-count:         3;
+
+  }
+}
+@media (max-width: 767px) {
+  #photos {
+  	-moz-column-count:    2;
+  	-webkit-column-count: 2;
+  	column-count:         2;
+  }
+}
+@media (max-width: 480px) {
+  #photos {
+  -moz-column-count:    1;
+  -webkit-column-count: 1;
+  column-count:         1;
+  }
+}
+
+#photos > a {
+	display: inline-block;
+}
+#photos figure {
+	margin-bottom: 20px;
+}
+#photos figcaption {
+	-webkit-transition: all .5s;
+	transition: all .5s;
+}
+#photos figcaption:hover {
+	background-color: rgba(240, 45, 114, .9);
+}
+#photos figcaption h4, 
+#photos figcaption p {
+	opacity: 0;
+	-webkit-transition: all .5s;
+	transition: all .5s;
+}
+#photos figcaption:hover h4,
+#photos figcaption:hover p {
+	color: #fff;
+	opacity: 1;
+}
+.overlay-icon {
+	font-family: 'poppinsbold';
+	right: 15px;
+    top: 15px;
+    opacity: 0;
+    -webkit-transition: opacity .1s;
+    transition: opacity .1s;
+    width: 50px;
+    text-align: right;
+}
+#photos figcaption:hover .overlay-icon {
+	opacity: 1;
+}
+
+/*lightbox*/
+.sl-overlay {
+	opacity: .9;
+}
+.sl-wrapper .sl-navigation button {
+	z-index: 999999999;
+}
+.sl-wrapper .sl-navigation button {
+	font-size: 40px;
+    background-color: rgba(206, 199, 199, .5);
+    width: 30px;
+    height: 45px;
+    line-height: .5;
+    vertical-align: baseline;
+    text-align: center;
+    padding-bottom: 5px;
+    color: #424242;
+
+}
+.sl-wrapper .sl-navigation button:hover,
+.sl-wrapper .sl-navigation button:focus {
+	background-color: rgba(101, 99, 99, .5);
+	color: #000000;
+	outline: none;
+}
+.sl-wrapper .sl-close {
+	background-color: rgba(206, 199, 199, .5);
+    width: 30px;
+    height: 32px;
+    font-size: 20px;
+}
+.sl-wrapper .sl-counter {
+	background-color: rgba(206, 199, 199, .5);
+    width: 46px;
+    height: 32px;
+    font-size: 16px;
+    line-height: 34px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+/*	Our Blog
+======================================================================================= */
+
+.blog-overview {
+	padding: 38px 25px;
+}
+
+.hover-pointer {
+	cursor: pointer;
+}
+.post-title {
+	font-family: 'arima_maduraibold';
+    font-size: 22px;
+    line-height: 1;
+    margin-top: 30px;
+}
+.blog-info {
+	opacity: 0;
+	-webkit-transition: all .5s;
+	transition: all .5s;
+}
+.blog-info > li {
+	line-height: 20px;
+}
+.blog-thumbnail {
+	text-align: center;
+	cursor: pointer;
+}
+.blog-thumbnail:hover .blog-info {
+	opacity: 1;
+	margin-bottom: 30px;
+}
+
+.blog-thumbnail:hover a {
+	color: #f02d72;
+    text-decoration: none;
+    cursor: pointer;
+}
+.blog-thumbnail:hover .blog-thumbnail-border {
+	border-color: #f02d72;
+}    
+.overlay-gradient-35p { /* ff3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(65%, rgba(255,255,255,0)), color-stop(100%, rgba(240,45,114,1))); /* safari4+,chrome */
+	background: -webkit-linear-gradient(90deg, rgba(240,45,114,1) 0%, rgba(255,255,255,0) 35%); /* safari5.1+,chrome10+ */ /* opera 11.10+ */ /* ie10+ */
+	background: -webkit-linear-gradient(bottom, rgba(240,45,114,1) 0%, rgba(255,255,255,0) 35%);
+	background: linear-gradient(0deg, rgba(240,45,114,1) 0%, rgba(255,255,255,0) 35%); /* w3c */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f02d72',GradientType=0 ); /* ie6-9 */
+}
+.blog-thumbnail:hover .overlay-gradient-35p  { /* ff3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(45%, rgba(255,255,255,0)), color-stop(100%, rgba(240,45,114,1))); /* safari4+,chrome */
+	background: -webkit-linear-gradient(90deg, rgba(240,45,114,1) 0%, rgba(255,255,255,0) 65%); /* safari5.1+,chrome10+ */ /* opera 11.10+ */ /* ie10+ */
+	background: -webkit-linear-gradient(bottom, rgba(240,45,114,1) 0%, rgba(255,255,255,0) 65%);
+	background: linear-gradient(0deg, rgba(240,45,114,1) 0%, rgba(255,255,255,0) 65%); /* w3c */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f02d72',GradientType=0 ); /* ie6-9 */
+}
+.blog-thumbnail-border {
+	border-top: 0;
+	border-bottom: 2px solid #e1e1e1;
+	border-left: 2px solid #e1e1e1;
+	border-right: 2px solid #e1e1e1;
+	-webkit-transition: all .3s;
+	transition: all .3s;
+}
+
+
+/*	Wedding Location
+======================================================================================= */
+
+.contact-info {
+	font-family: "Questrial", sans-serif;
+	font-size: 18px;
+	line-height: 1;
+}
+.contact-details {
+	border: 1px solid #e1e1e1;
+	padding: 20px 0;
+	cursor: pointer;
+	-webkit-transition: all .3s;
+	transition: all .3s;
+}
+.contact-details:hover {
+	border: 1px solid #f02d72;
+}
+.contact-details i {
+	-webkit-transition: all .6s;
+	transition: all .6s;
+
+}
+.contact-details:hover i {
+	color: #f02d72;
+}
+
+#gmap::before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	width: 0px;
+    height: 0px;
+    border-style: solid;
+	border-width: 68px 67px 0 67px;
+	border-color: #ffffff transparent transparent transparent;
+    z-index: 9;
+    position: absolute;
+    left: 50%;
+    margin-left: -67px;
+}
+
+/* Google Map */
+
+
+.gm-style-iw * {
+	height: 50px;
+	overflow: visible;
+	max-width: 210px;
+}
+
+.gm-style-iw {
+	font-family: 'poppinsregular';
+    font-size: 14px;
+    line-height: 18px;
+    overflow: visible;
+    max-height: 40px;
+    width: 180px;
+}
+
+/*	Gift Registration
+======================================================================================= */
+.gift-registration  .slick-slide {
+	outline: none;
+}
+.gift-reg-slideset img {
+	padding: 0px 15px;
+}
+.gift-reg-slideset  {
+	min-height: 78px;
+}
+
+/*	Footer
+======================================================================================= */
+footer {
+    margin-top: 50px;
+}
+
+.footer-logo-wells {
+    background: linear-gradient(to right, #f8f9fa, #e9ecef);
+    padding: 30px 0;
+}
+
+.footer-logo-wells img {
+    width: 120px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.footer-logo-wells img:hover {
+    transform: scale(1.1);
+}
+
+.copy-right {
+    background: #e70808; 
+    padding: 15px 0;
+}
+
+.text-copy-right {
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.text-copy-right .text-white {
+    margin-right: 10px;
+    opacity: 0.9;
+}
+
+.text-copy-right .text-pink {
+    color: #fff;
+    font-weight: 500;
+}
+
+
+
+/*	BLOG PAGE (blog.html)
+=======================================================================================
+======================================================================================= */
+
+/*	Blog Header
+======================================================================================= */
+.blog-header  {
+	background-image: url('../images/blog_header_bg.jpg');
+}
+.blog-header .header-flex-wrapper .section-tagline {
+	margin-bottom: 0;
+}
+
+
+
+/*	Blog Posts
+======================================================================================= */
+#all-post > li {
+	margin-bottom: 50px;
+	vertical-align: middle;
+	
+}
+.blog-pagination > li > a {
+	font-family: 'Roboto Slab', serif;
+	font-weight: bold;
+	font-size: 17px;
+	color: #424242;
+	line-height: .8;
+	text-align: center;
+	vertical-align: middle;
+	display: inline-block;
+}
+.blog-pagination i {
+	font-size: 36px;
+	line-height: 22px;
+}
+.blog-pagination i:hover,
+.blog-pagination i:focus,
+.blog-pagination i:active {
+	background-color: #ffffff;
+	color: #f02d72;
+}
+
+.blog-pagination-btn {
+	padding: 13px 16px 14px;
+	background-color: #eeeeee;
+	color: #ffffff;
+	border-radius: 10px;
+	-webkit-transition: all .2s;
+	transition: all .2s;
+}
+.blog-pagination-btn:hover,
+.blog-pagination-btn:focus,
+.blog-pagination-btn:active {
+	background-color: #f02d72;
+	color: #ffffff;
+	text-decoration: none;
+}
+
+
+
+/*	SINGLE POST
+=======================================================================================
+======================================================================================= */
+
+/*	Single  Post Header
+======================================================================================= */
+
+.single-post-header {
+	background-image: url('../images/single_post_header.jpg');
+}
+.single-post-title {
+	font-family: 'arima_maduraibold';
+	font-size: 55px;
+	line-height: 1;
+	margin-top: 0;
+	margin-bottom: 24px; 
+}
+
+
+
+/*	Post Content
+======================================================================================= */
+.post-content article {
+	padding-top: 90px;
+	padding-bottom: 90px;
+}
+.text-post {
+	font-family: 'poppinsregular';
+	font-size: 16px;
+	line-height: 32px;
+	margin-bottom: 45px;
+	padding-left: 90px;
+	padding-right: 90px;
+}
+.post-highlights {	
+    padding: 45px 80px 90px 90px;
+    margin-bottom: 45px;
+}
+.post-highlights p {	
+    line-height: 38px;
+}
+.post-listitem {
+	padding: 0;
+	list-style: none;
+	padding-left: 90px;
+}
+.post-listitem li {
+	line-height: 1;
+	margin-bottom: 30px;
+}
+.post-listitem li:before {
+	content: "\f14a"; 
+	font-family: FontAwesome;
+	display: inline-block;
+	font-size: 22px;
+	color: #f02d72;
+	padding-right: 20px;
+	line-height: 1;
+	vertical-align: middle;
+	
+ }
+.post-pagger {
+ 	padding: 55px 90px;
+ }
+.post-pagger * {
+	margin-bottom: 0!important;
+}
+.post-pagger-text {
+	font-family: 'arima_maduraibold';
+	font-size: 26px;
+	color: #222222;
+	margin-right: 16px;
+}
+.share-social-icon {
+	height: 36px;
+}
+.share-social-icon i {
+	font-size: 20px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.share-social-icon i:hover {
+	font-size: 36px;
+}
+.share-social-icon li {
+	height: 36px;
+	width: 70px;
+	vertical-align: middle;
+	text-align: center;
+	
+}
+.fb-icon-color {
+	color: #3b5998;
+}
+.tw-icon-color {
+	color: #55acee;
+}
+.gp-icon-color {
+	color: #dd4b39;
+}
+.share-icon-color {
+	color: #d94531;
+}
+
+
+/*	Comments
+======================================================================================= */
+.comments-padding {
+ 	padding: 100px 90px;
+}
+.reply-tag {
+ 	font-family: 'arima_maduraibold'; 
+	margin-top: 22px;
+}
+.media-left, .media>.pull-left {
+	padding-right: 36px;
+}
+.media {
+	margin-top: 40px;
+}
+.media.sub-comments:first-child {
+	margin-top: 40px;
+}
+
+/*	Reply Comments Form
+======================================================================================= */
+
+	/*See Form Styles*/
+
+
+/*	Utility classes
+======================================================================================= */
+.position-relative {
+    position: relative;
+}
+.position-absolute {
+	position: absolute;
+}
+.cover-background {
+    background-position: 50% 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.position-cover {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.pink-overlay {
+	background-color: rgba(240, 45, 114, .6);
+	
+}
+.parallax-container {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.flex-container {
+	display: -ms-flexbox;
+    display: -webkit-box;
+    display: flex;
+}
+.flex-middle {
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+}
+.flex-center {
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;}
+.flex-bottom {
+	-webkit-box-align: end;
+	-ms-flex-align: end;
+	align-items: flex-end;
+}
+.flex-column {
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+    flex-direction: column
+}
+.flex-row {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+}
+.flex-space-between {
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+}
+.flex-space-around {
+	-ms-flex-pack: distribute;
+	justify-content: space-around;
+}
+.flex-wrapped {
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+}
+.display-inline-block {
+	display: inline-block;
+}
+.display-block {
+	display: block;
+}
+.fullwidth-block {
+	display: block;
+	width: 100%;
+}
+.full-height {
+	height: 100%;
+}
+.icon-left {
+	padding-right: 8px;
+}
+.icon-right {
+	padding-left: 8px;
+}
+.mb-remove {
+	margin-bottom: 0px;
+}
+.padding-remove {
+	padding: 0;
+}
+.margin-remove {
+	margin: 0;
+}
+.mt-60 {
+	margin-top: 60px;
+}
+.mt-60	{
+	margin-top: 60px;
+}
+.mb-12 {
+	margin-bottom: 12px;
+}
+.mb-15 {
+	margin-bottom: 15px;
+}
+.mb-20 {
+	margin-bottom: 20px;
+}
+.mb-30 {
+	margin-bottom: 30px;
+}
+.mb-35 {
+	margin-bottom: 35px;
+}
+.mb-50 {
+	margin-bottom: 50px;
+}
+.mb-60 {
+	margin-bottom: 60px;
+}
+.mb-80 {
+	margin-bottom: 80px;
+}
+.pt-90 {
+	padding-top: 90px;
+}
+.pb-90 {
+	padding-bottom: 90px;
+}
+.zindex-1 {
+	z-index: 9;
+}
+.clear {
+	clear: both;
+	float: left;
+}
+.divider-img {
+	height: 100%;
+}
+
+/*	Media Quaries
+========================================================================
+	01. @media (max-width: 1199px)
+	02. @media (max-width: 1099px)
+	03. @media (max-width: 991px)
+	04. @media (max-width: 829px)
+	05. @media (max-width: 767px)
+	06. @media (max-width: 667px)
+	07. @media (max-width: 570px)
+	08. @media (max-width: 480px)
+	09. @media (max-width: 399px)
+	10. @media (max-width: 330px)
+======================================================================== */
+
+
+@media (max-width: 1199px) {
+	.big-day .section-tagline {
+		margin-bottom: 15px;
+		margin-top: 10px;
+	}
+	.navbar-default .navbar-nav>li>a {
+		padding: 30px 10px 26px;
+	}
+
+}
+@media (max-width: 1099px) {
+	.rsvp .section-tagline {
+		margin-top: 10px;
+		margin-bottom: 15px;
+	}
+}
+
+@media (min-width: 767px) and (max-width: 991px) {
+	#photos figcaption .section-subtitle {
+		font-size: 18px;
+	}
+	.post-title {
+		margin-bottom: 0;
+	}
+	.blog-info {
+		margin-bottom: 0;
+	}
+	.blog-thumbnail:hover .post-title {
+		margin-bottom: 10px;
+	}
+	.blog-thumbnail:hover .blog-info {
+		margin-bottom: 10px;
+	}
+}
+@media (min-width: 992px) {
+	.li-left {
+		float: left!important;
+	}
+	.li-right {
+		float: right!important;	
+	}
+	.left-nav {
+		width: 100%;
+	}
+	.navbar.navbar-default.affix .navbar-logo {
+		position: absolute;
+	    margin-left: -35px;
+	    margin-top: -35px;
+	}
+.navbar.navbar-default.affix .navbar-logo > img {
+		max-width: 70px;
+		height: auto;
+	}
+}
+@media (max-width: 991px) {
+	
+	/*991px collapsible navbar*/
+	.navbar-header {
+        float: none;
+    }
+    .navbar-toggle {
+        display: block;
+    }
+    .navbar-collapse {
+        border-top: 1px solid transparent;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+        height: 0px!important;
+        -webkit-transition: height .5s ease, all .5s ease!important;
+        transition: height .5s ease, all .5s ease!important;
+    }
+    .navbar-collapse.collapse {
+        display: none!important;
+    }
+
+    .navbar-nav {
+        float: none;
+        margin: 7.5px -15px;
+    }
+    .navbar-nav>li {
+        float: none;
+    }
+    .navbar-text {
+        float: none;
+        margin: 15px 0;
+    }
+    .navbar-default .navbar-nav>li>a {
+	    padding: 0px 40px 0px;
+	    opacity: 0;
+	    -webkit-transition: padding-bottom 1s, padding-top 1s, opacity 1s;
+	    transition: padding-bottom 1s, padding-top 1s, opacity 1s;
+    }
+    .navbar-collapse.collapse.in {
+        display: block!important;
+        background-color: rgba(34, 34, 34, .9);
+        height: 404px!important;
+       	-webkit-transition: opacity 1s, height 1s;
+       	transition: opacity 1s, height 1s;
+    }
+
+	.navbar-nav.left-nav li a {
+		color: #FFF;
+		font-weight: 600;
+		transition: all 0.3s ease;
+		text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+	}
+
+	.navbar-nav li.li-right a {
+		color: #FFF;
+		font-weight: 600;
+		transition: all 0.3s ease;
+		text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+	}
+	
+	.navbar-nav li a:hover {
+		color: #FFE4E1 !important;
+		text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+	}
+
+    .navbar-collapse.collapse .navbar-nav>li>a {
+		padding: 0;
+		opacity: 0;
+		-webkit-transition: padding-bottom 1s, padding-top 1s;
+		transition: padding-bottom 1s, padding-top 1s;
+	}
+	.navbar-collapse.collapse.in .navbar-nav>li>a {
+		opacity: 1;
+		padding: 12px 40px;
+		-webkit-transition: padding-bottom 1.2s, padding-top 1.2s, opacity 1.2s;
+		transition: padding-bottom 1.2s, padding-top 1.2s, opacity 1.2s;
+	}
+    
+    .collapsing {
+        overflow: hidden;
+    }
+
+    /*991px collapsible navbar end*/
+
+	.sm-hide {
+		display: none;
+	}
+	.counter-tags {
+		margin-top: 8px;
+	}
+	.section-title {
+		font-size: 35px;
+	}
+	#testimonial-carousel .item.flex-column {
+		-webkit-box-orient: horizontal;
+		-webkit-box-direction: normal;
+		-ms-flex-direction: row;
+		flex-direction: row;
+	}
+	.testimonial-quotation {
+		max-width: 700px;
+	}
+	.events-list {
+		padding-left: 0;
+	}
+	.rsvp-now {
+	    padding-top: 175px;
+	    padding-bottom: 175px;
+	}
+	.wedding-events-img {
+		margin-bottom: 30px;
+	}
+	.contact-details {
+		max-width: 350px;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		
+	}
+	.wedding-location [class^="col-"] + [class^="col-"] {
+		margin-top: 20px;
+	}
+
+	.comments-padding {
+		padding: 100px 15px 100px 30px;
+	}
+	.media-left {
+		padding-right: 15px;
+	}
+	.media.sub-comments {
+		margin-left: -90px;
+	}
+	.media, 
+	.media-body {
+		overflow: visible;
+	}
+	.post-pagger {
+		padding-left: 30px;
+		padding-right: 30px;		
+	}
+	.post-pagger > * {
+		display: block;
+		float: none!important;
+		margin-left: auto;
+    	margin-right: auto;
+    	text-align: center;
+    	margin-bottom: 20px!important;
+	}
+	
+	.header-flex-wrapper {
+		padding-top: 125px;
+	}
+	header .navbar-nav {
+		display: flex;
+		flex-direction: column;
+	}
+	header .navbar-nav li {
+		float: none;
+	}
+	header .navbar-nav > li:nth-of-type(1) {
+		order: 1;
+	}
+	header .navbar-nav > li:nth-of-type(2) {
+		order: 2;
+	}
+	header .navbar-nav > li:nth-of-type(3) {
+		order: 3;
+	}
+	header .navbar-nav > li:nth-of-type(4) {
+		order: 4;
+	}
+	header .navbar-nav > li:nth-of-type(5) {
+		order: 5;
+	}
+	header .navbar-nav > li:nth-of-type(6) {
+		order: 10;
+	}
+	header .navbar-nav > li:nth-of-type(7) {
+		order: 9;
+	}
+	header .navbar-nav > li:nth-of-type(8) {
+		order: 8;
+	}
+	header .navbar-nav > li:nth-of-type(9) {
+		order: 7;
+	}
+	header .navbar-nav > li:nth-of-type(10) {
+		order: 6;
+	}
+
+}
+
+@media (max-width: 829px) {
+	.main-header-title {
+		margin-bottom: 10px;
+	}
+	.main-header-date {
+		margin-top: 10px;
+	}
+	.rsvp-now .section-tagline {
+		margin-top: 10px;
+		margin-bottom: 40px;
+	}
+	.testimonial-quotation {
+		max-width: 650px;
+	}
+}
+
+@media (min-width: 768px) {
+	.photo-gallery {
+		padding-bottom: 0;
+	}
+}
+
+@media (max-width: 767px) {
+	.text-copy-right {
+		line-height: 24px;
+		padding: 0px 15px;
+	}
+	.xs-hide {
+		display: none!important;
+	}
+	.navbar-default.affix-top {
+		margin-top: 0px;
+	}
+	.header-flex-wrapper {
+		padding-top: 83px;
+	}
+	.section-tagline {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+	.wedding-couple .flex-container {
+		display: block;
+	}
+	.couple-thumbnail {
+		display: block;
+		float: none;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.storyline-titlebar-right::before {
+		display: none;
+	}
+	.storyline-titlebar-left::after {
+		display: none;
+	}
+	.love-container {
+		margin-top: 20px;
+		margin-bottom: 150px;
+	}
+	.story-thumbnail img {
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.testimonial-quotation {
+		max-width: 600px;
+		margin: 0px 0px 50px 15px;
+		padding: 28px 20px 52px 68px;
+	}
+	.thumbnail-custom {
+		margin-bottom: 0;
+	}
+	.people-list figure {
+		margin-bottom: 20px;
+	}
+	.blog-thumbnail {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		float: none;
+	}
+	.blog-thumbnail + .blog-thumbnail {
+		margin-top: 30px;
+	}
+	.form-group [class^="col-"] + [class^="col-"] {
+		margin-top: 23px;
+	}
+	.rsvp-now {
+    	padding-top: 250px;
+    	padding-bottom: 250px;
+	}
+
+	#gmap {
+		padding-top: 50px;
+		padding-bottom: 50px;
+	}
+	#gmap::before {
+		border-width: 40px 40px 0 40px;
+		margin-left: -40px;
+	}
+}
+
+@media (max-width: 667px) {
+	.main-header-title {
+		font-size: 60px;
+	}
+	.main-header-tagline::before,
+	.main-header-tagline::after {
+		width: 95px;
+	}
+	.main-header-date {
+		font-size: 28px;
+	}
+	.groom,
+	.bride {
+		font-size: 19px;
+	}
+	.love-story .center-block-col {
+		width: 100%;
+	}
+	#testimonial-carousel .fa-quote-left {
+		font-size: 25px;
+    	left: -10px;
+    	top: 8px;
+	}
+	.testimonial-quotation {
+		padding: 28px 13px 0px 35px;
+    	margin-bottom: 50px;
+    	max-width: 500px;
+	}
+	.testimonial-friend-name {
+		font-size: 18px;
+	}
+	.single-post-title {
+		font-size: 40px;
+		margin-bottom: 10px;
+	}
+
+	.post-listitem {
+		padding-left: 50px;
+		padding-right: 20px;
+	}
+	.post-listitem li {
+		line-height: 2;
+		margin-bottom: 10px;
+	}
+}
+
+@media (max-width: 570px) {
+	.navbar-logo {
+		left: 60%;
+	}
+	.story-thumbnail {
+		width: 66.66%;
+		display: block;
+		float: none;
+		margin-left: auto;
+		margin-right: auto;		
+	}
+	.testimonial {
+		padding-top: 150px;
+		padding-bottom: 150px;
+	}
+	.testimonial-quotation {
+		max-width: 400px;
+		height: 270px;
+	}
+	.testimonial-friend-details {
+		display: block;
+		margin-left: 20%;
+	}
+	.testimonial-friend-name {
+		margin-top: 5px;
+		margin-bottom: 0;
+	}
+	.testimonial-friend-name + p {
+		margin: 0;
+	}
+	.home-header {
+		padding-top: 50px;
+		padding-bottom: 50px;
+	}
+	.blog-header .header-flex-wrapper .section-tagline {
+		margin-top: 10px;
+		line-height: 30px;
+	}
+	.blog-header {
+		padding-top: 60px;
+		padding-bottom: 60px;
+	}
+	.blog-thumbnail {
+		width: 80%;	
+		max-width: 376px;
+		display: block;
+		float: none;
+		margin-left: auto;
+		margin-right: auto;
+		
+	}
+	.rsvp-now {
+		padding-top: 300px;
+    	padding-bottom: 300px;
+	}
+	.media > * {
+		display: block!important;
+		width: 96%;
+	}
+	.media.sub-comments {
+		margin-left: 40px;
+	}
+	.media-object {
+		margin-bottom: 20px;
+		max-width: 70px;
+	}
+	.reply-comments .wedding-button {
+		display: block;
+		margin: 0 auto;
+	}
+}
+@media (max-width: 480px) {
+	.navbar-logo {
+		left: 65%;
+	}
+	.main-header-title {
+		font-size: 42px;
+	}
+	.main-header-tagline {
+		font-size: 18px;
+	}
+	.main-header-tagline::before, 
+	.main-header-tagline::after {
+		width: 50px;
+	}
+	.main-header-date {
+		font-size: 20px;
+	}
+	.couple-thumbnail {
+		width: 96%;
+	}
+	.big-day {
+		padding: 150px 0px 150px;
+	}
+	.story-thumbnail {
+		width: 96%;
+	}
+	.testimonial {
+		padding-top: 190px;
+		padding-bottom: 190px;
+	}
+	.testimonial-quotation {
+		max-width: 320px;
+		height: 342px;
+		padding: 28px 0px 52px 35px;
+	}
+	.rsvp {
+		padding-top: 120px;
+		padding-bottom: 120px;
+	}
+	.rsvp-now .section-tagline {
+		margin-bottom: 20px;
+	}
+	#photos {
+		text-align: center;
+	}
+	.blog-thumbnail {
+		width: 96%;
+	}
+	.single-post-header {
+		padding-top: 50px;
+		padding-bottom: 50px;
+	}
+	.text-post,
+	.post-highlights {
+		padding: 0px 25px 0px 25px;
+	}
+	.comments .text-post {
+		padding: 0px 25px 0px 0px;
+	}
+
+}
+
+@media (max-width: 399px) {
+	.main-header-title {
+		font-size: 32px;
+	}
+	.main-header-tagline {
+    	font-size: 16px;
+	}
+	.main-header-date {
+    	font-size: 18px;
+	}
+	.groom, 
+	.bride {
+    	font-size: 14px;
+	}
+	.main-header-tagline::before {
+		width: 32px;
+		margin-right: 5px;
+	}
+	.main-header-tagline::after {
+		width: 32px;
+		margin-left: 5px;
+	}
+	.section-title {
+		font-size: 28px;
+	}
+	.counter-tags {
+		font-size: 14px;
+		font-weight: bold;
+	}
+	.counter-numbers {
+		position: absolute;
+		font-size: 28px;
+		top: 20px;
+	}
+	.people-list {
+		width: 100%;
+	}
+	.testimonial {
+		padding-top: 220px;
+		padding-bottom: 220px;
+	}
+	.testimonial-quotation {
+		height: 400px;
+	    padding: 28px 0px 52px 14px;
+	    max-width: 250px;
+	}
+	.testimonial blockquote {
+		text-indent: 37px;
+	}
+	.testimonial-friend-picture + [class*='col-'] {
+		width: 66%;
+	}
+	.rsvp-now {
+		padding-top: 350px;
+		padding-bottom: 350px;
+	}
+	.post-pagger {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	.blog-header {
+		padding-top: 100px;
+		padding-bottom: 100px;
+	}
+
+}
+ 
+@media (max-width: 330px) {
+	.navbar-logo img {
+		max-width: 70px;
+	}
+	.navbar-logo {
+		left: 80%;
+		top: 62%;
+	}
+	.counter-numbers {
+		top: 10px;
+	}
+	.testimonial {
+	    padding-top: 250px;
+	    padding-bottom: 250px;
+	}
+	.testimonial-friend-details {
+		margin-left: 10%;
+
+	}
+	.testimonial-quotation::after {
+		left: 55px;
+		bottom: -33px;
+	}
+	.testimonial-quotation {
+		height: 466px;
+    	padding: 12px 0px 52px 13px;
+    	max-width: 220px;
+	}
+	.testimonial blockquote {
+    	text-indent: 52px;
+	}
+}
+
+.qr-info {
+    padding: 30px;
+    margin-bottom: 30px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.qr-info .account-number {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.qr-info .account-name {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.qr-info .bank-name {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.qr-info .qr-code {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .qr-info {
+        margin-bottom: 20px;
+    }
+    
+    .qr-info .qr-code {
+        max-width: 250px;
+    }
+}
+
+.navbar-nav.left-nav li a {
+    color: #FFF;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-nav li.li-right a {
+    color: #FFF;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-nav li a:hover {
+    color: #FFE4E1 !important;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+}
+
+.event-item {
+    margin-bottom: 50px;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+}
+
+.event-item img {
+    max-width: 400px;  /* Giới hạn kích thước tối đa */
+    width: 100%;
+    height: 300px;     /* Chiều cao cố định */
+    object-fit: cover; /* Đảm bảo ảnh không bị méo */
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border: 8px solid #fff;
+    transition: all 0.3s ease;
+}
+
+.event-item img:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.event-item .section-subtitle-custom {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.event-item .events-info {
+    margin-top: 15px;
+}
+
+.event-item .events-info li {
+    margin-bottom: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .event-item {
+        margin-bottom: 30px;
+    }
+    
+    .event-item img {
+        max-width: 100%;
+        height: 250px;  /* Chiều cao nhỏ hơn trên mobile */
+        margin-bottom: 20px;
+    }
+}
+
+.avatar-wrapper {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+    border-radius: 50%;
+    padding: 5px;
+    background: linear-gradient(45deg, #ff69b4, #ff8da1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+.circular-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid white;
+    background-color: white;
+}
+
+.avatar-wrapper:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+.avatar-wrapper::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #ff69b4, #ff8da1);
+    z-index: -1;
+    opacity: 0.5;
+}
+
+#music-control {
+    width: 45px;
+    height: 45px;
+    position: fixed;
+    top: 80px;
+    right: 5px;
+    z-index: 100;
+    cursor: pointer;
+}
+
+#music-control.playing img {
+    animation: rotate 2s linear infinite;
+}
+
+#music-control img {
+    width: 100%;
+    height: 100%;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.fb-share-button {
+    position: fixed !important;
+    top: 135px; /* Điều chỉnh vị trí theo ý muốn */
+    right: 5px;
+    z-index: 100;
+}
+.heart {
+	position: fixed;
+	top: -100px;
+	transform: translateY(0);
+	cursor: pointer;
+	z-index: 999;
+}
+
+.heart::before, 
+.heart::after {
+	content: "";
+	width: 12px;
+	height: 20px;
+	background: #f06292;
+	border-radius: 50px 50px 0 0;
+	position: absolute;
+	display: block;
+}
+
+.heart::before {
+	transform: rotate(-45deg);
+	transform-origin: 0 100%;
+	left: 10px;
+}
+
+.heart::after {
+	transform: rotate(45deg);
+	transform-origin: 100% 100%;
+	left: -2px;
+}
+
+@keyframes heartAnimation {
+	0% {
+		opacity: 0;
+		transform: translateY(0) scale(0.3);
+	}
+	30% {
+		opacity: 0.7;
+		transform: translateY(100px) scale(0.6);
+	}
+	70% {
+		opacity: 1;
+		transform: translateY(400px) scale(0.8);
+	}
+	100% {
+		opacity: 0;
+		transform: translateY(800px) scale(1);
+	}
+}
+.alert {
+	padding: 15px;
+	margin-bottom: 20px;
+	border: 1px solid transparent;
+	border-radius: 4px;
+}
+
+.alert-success {
+	color: #3c763d;
+	background-color: #dff0d8;
+	border-color: #d6e9c6;
+}
+
+.alert-info {
+	color: #31708f;
+	background-color: #d9edf7;
+	border-color: #bce8f1;
+}
+
+.alert-warning {
+	color: #8a6d3b;
+	background-color: #fcf8e3;
+	border-color: #faebcc;
+}
+
+.alert-danger {
+	color: #a94442;
+	background-color: #f2dede;
+	border-color: #ebccd1;
+}
+
+/* CSS cho phần hiển thị lời chúc */
+.wishes-container {
+	margin-top: 50px;
+}
+
+.wish-card {
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+	height: 100%;
+	transition: all 0.3s ease;
+	margin-bottom: 20px;
+}
+
+.wish-card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.mb-30 {
+	margin-bottom: 30px;
+}
+
+.border-radius-5 {
+	border-radius: 5px;
+}
+
+.p-20 {
+	padding: 20px;
+}
+
+.text-muted {
+	color: #777;
+}
+.google-form-container {
+	background-color: rgba(255, 255, 255, 0.9);
+	border-radius: 8px;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+	padding: 15px;
+	margin-top: 20px;
+	max-width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.google-form {
+	border-radius: 4px;
+	background-color: transparent;
+	transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+	.google-form {
+		height: 800px; /* Tăng chiều cao trên thiết bị di động */
+	}
+	
+	.google-form-container {
+		padding: 10px;
+		margin-top: 10px;
+	}
+}
+
+/* Thêm hiệu ứng nổi khi hover */
+.google-form-container:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Phần tiêu đề form sáng hơn */
+.section-title .dancing-script {
+	text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.wish-card {
+	background-color: #fff;
+	border-radius: 8px;
+	padding: 20px;
+	margin-bottom: 20px;
+	box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+	transition: all 0.3s ease;
+}
+
+.wish-card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.wish-name {
+	color: #f06292;
+	font-weight: 600;
+	margin-bottom: 5px;
+}
+
+.wish-date {
+	font-size: 12px;
+	color: #888;
+	margin-bottom: 10px;
+}
+
+.wish-message {
+	font-style: italic;
+	line-height: 1.5;
+}
+
+.loading-indicator {
+	padding: 30px 0;
+	color: #888;
+}
+.testimonial-quotation {
+	padding: 20px;
+	border-radius: 5px;
+	margin-bottom: 15px;
+	box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  
+  .testimonial-quotation blockquote {
+	margin: 0;
+	padding: 0 0 0 30px;
+	border-left: none;
+	min-height: 80px;
+	word-wrap: break-word;
+  }
+  
+  .fa-quote-left {
+	top: 0;
+	left: 0;
+	opacity: 0.5;
+  }
+  
+  .testimonial-friend-details {
+	margin-top: 10px;
+  }
+  
+  .carousel-indicators {
+	max-height: 200px;
+	overflow-y: auto;
+	width: auto;
+	left: auto;
+	right: 20px;
+  }
+  
+  .carousel-indicators li {
+	width: 12px;
+	height: 12px;
+	margin: 5px;
+	border-radius: 50%;
+  }
+  
+  .testimonial-friend-picture {
+    width: 80px;  /* Chiều rộng cố định cho container */
+    height: 80px;  /* Chiều cao cố định cho container */
+    position: relative;  /* Đặt vị trí relative để căn chỉnh ảnh bên trong */
+    margin: 0 auto;  /* Căn giữa theo chiều ngang */
+    overflow: hidden;  /* Ẩn phần ngoài khung tròn */
+    border-radius: 50%;  /* Bo tròn container */
+    border: 3px solid #fff;  /* Đường viền trắng */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);  /* Bóng đổ nhẹ */
+    transition: all 0.3s ease;  /* Hiệu ứng chuyển đổi mượt mà */
+}
+
+.testimonial-friend-picture:hover {
+    border-color: #f06292;  /* Đổi màu viền khi hover */
+}
+
+.testimonial-friend-picture img {
+    width: 100%;  /* Chiều rộng 100% của container */
+    height: 100%;  /* Chiều cao 100% của container */
+    object-fit: cover;  /* Đảm bảo ảnh bao phủ toàn bộ container mà không bị méo */
+    object-position: center;  /* Căn giữa ảnh */
+}
+
+/* Căn chỉnh khoảng cách giữa ảnh và text */
+.testimonial-friend-details .col-sm-4.col-xs-7 {
+    padding-left: 20px;  /* Tăng khoảng cách giữa ảnh và text */
+}
+
+/* Điều chỉnh vị trí tên và mối quan hệ */
+.testimonial-friend-name {
+    margin-top: 5px;  /* Thêm khoảng cách phía trên */
+    margin-bottom: 5px;  /* Giảm khoảng cách với dòng bên dưới */
+}
+
+/* Điều chỉnh vị trí của cột chứa ảnh */
+.testimonial-friend-details .col-sm-2.col-xs-3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
