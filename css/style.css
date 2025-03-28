@@ -359,7 +359,7 @@ i:active {
 ======================================================================================= */
 #loader-wrapper {
     /* background: linear-gradient(135deg, #8B0000, #FF0000); */
-	background: url('/images/red_banner_2.png');
+    background: url('../images/red_banner_2.png');
     background-size: auto; /* Đảm bảo ảnh phủ toàn bộ area */
     background-position: center; 
     position: fixed;
